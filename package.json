@@ -1,0 +1,26 @@
+{
+  "name": "cordova-external-screen",
+  "version": "0.1.0",
+  "description": "A Cordova Plugin for displaying a Website over AirPlay",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Festify/cordova-external-screen.git"
+  },
+  "author": "Festify Dev Team <mail@festify.rocks>",
+  "bugs": {
+    "url": "https://github.com/Festify/cordova-external-screen"
+  },
+  "homepage": "https://github.com/Festify/cordova-external-screen#readme",
+  "license": "MIT",
+  "dependencies": {
+    "es6-promise": "^4.0.5",
+    "eventemitter3": "^2.0.2"
+  },
+  "devDependencies": {
+    "babel-core": "^6.22.1",
+    "babel-loader": "^6.2.10",
+    "babel-plugin-transform-object-assign": "^6.22.0",
+    "babel-preset-es2015": "^6.22.0",
+    "webpack": "^1.14.0"
+  }
+}
