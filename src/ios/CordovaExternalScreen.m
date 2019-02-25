@@ -10,12 +10,15 @@
 - (WKWebView*)getWebView {
     if (!self.externalWebView) {
         UIScreen* externalScreen = [[UIScreen screens] objectAtIndex: 1];
-        CGRect screenBounds = externalScreen.bounds;
+        // Non device oreintation specific sizing
+        CGRect screenBounds = externalScreen.nativeBounds;
 
         self.externalWebView = [[WKWebView alloc] initWithFrame: screenBounds
                                                   configuration: [[WKWebViewConfiguration alloc] init]];
         self.externalWindow = [[UIWindow alloc] initWithFrame: screenBounds];
 
+        // disable inset behavior because we're not on a notched device
+        [self.externalWebView.scrollView setContentInsetAdjustmentBehavior:UIScrollViewContentInsetAdjustmentNever];
         self.externalWindow.screen = externalScreen;
         self.externalWindow.clipsToBounds = YES;
         [self.externalWindow addSubview:self.externalWebView];
@@ -73,6 +76,7 @@
     [center addObserver: self
                selector: @selector(handleScreenDisconnectNotification:)
                    name: UIScreenDidDisconnectNotification object:nil];
+
 
     CDVPluginResult *result = [CDVPluginResult resultWithStatus: CDVCommandStatus_OK
                                                 messageAsString: nil];
