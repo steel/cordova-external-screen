@@ -83,8 +83,5 @@ jspm_packages
 # Android
 .gradle/
 
-# Webpack
-www/build/
-
 # XCode
 *.xcodeproj/
